@@ -15,3 +15,5 @@ do
 done
 
 docker image build -t $username/$image_name -f $dockerfile .
+
+#docker image build -t cheesesan/ros2 -f Dockerfile_ros2 .
