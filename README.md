@@ -22,3 +22,6 @@ docker run -v /home/bucchiman/git:/home/bucchiman/git -it cheesesan/pytorch:late
 ```sh
 docker image build -t cheesesan/ros2 -f Dockerfile_ros2 .
 ```
+
+# Docker GPU
+e.g. https://docs.nvidia.com/cuda/wsl-user-guide/index.html
