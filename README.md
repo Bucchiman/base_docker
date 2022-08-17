@@ -15,3 +15,10 @@ docker image build -t cheesesan/pytorch -f Dockerfile_pytorch .
 docker run -v /home/bucchiman/git:/home/bucchiman/git -it cheesesan/pytorch:latest
 ```
 
+
+
+# Docker_ros2
+### image build
+```sh
+docker image build -t cheesesan/ros2 -f Dockerfile_ros2 .
+```
