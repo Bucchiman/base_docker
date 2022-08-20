@@ -7,7 +7,7 @@
 # Docker_pytorch
 ### image build
 ```sh
-docker image build -t cheesesan/pytorch -f Dockerfile_pytorch .
+docker image build -t cheesesan/pytorch -f Dockerfile.pytorch .
 ```
 
 ### run continar
@@ -20,7 +20,7 @@ docker run -v /home/bucchiman/git:/home/bucchiman/git -it cheesesan/pytorch:late
 # Docker_ros2
 ### image build
 ```sh
-docker image build -t cheesesan/ros2 -f Dockerfile_ros2 .
+docker image build -t cheesesan/ros2 -f Dockerfile.ros2 .
 ```
 
 # Docker GPU
