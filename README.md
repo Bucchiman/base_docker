@@ -7,7 +7,7 @@
 # Docker_pytorch
 ### image build
 ```sh
-docker image build -t cheesesan/pytorch -f Dockerfile.pytorch .
+docker image build -t cheesesan/pytorch -f Pytorch.Dockerfile .
 ```
 
 ### run continar
