@@ -1,8 +1,9 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y neofetch git zsh sudo
+RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:neovim-ppa/unstable
-RUN apt-get install neovim
+RUN apt-get install neovim -y
 
 
 
