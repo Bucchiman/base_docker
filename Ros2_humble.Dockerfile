@@ -1,9 +1,8 @@
-FROM ubuntu:18.04
+FROM osrf/ros:humble-desktop
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo
-RUN apt-get install software-properties-common -y
+RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common
 RUN add-apt-repository ppa:neovim-ppa/unstable
-RUN apt-get install neovim -y
+RUN apt-get install -y neovim
 
 
 
@@ -21,9 +20,8 @@ USER ${username}
 WORKDIR /home/${username}
 RUN mkdir ~/git && cd ~/git && \
     git clone https://github.com/Bucchiman/dotfiles.git && \
-    cp dotfiles/.zshrc ~ && cp -r dotfiles/.config ~
+    cd dotfiles && ./create_symbolic.sh
 
 
 CMD ["/usr/bin/zsh"]
-
 
