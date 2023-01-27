@@ -1,8 +1,9 @@
-FROM osrf/ros:humble-desktop
+FROM nvidia/cuda:12.0.0-devel-ubuntu22.04
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common
+RUN apt-get update && apt-get install -y neofetch git zsh sudo
+RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:neovim-ppa/unstable
-RUN apt-get install -y neovim
+RUN apt-get install neovim -y
 
 
 
@@ -18,6 +19,7 @@ RUN echo "root:root" | chpasswd && \
 
 USER ${username}
 WORKDIR /home/${username}
+RUN mkdir ~/.config
 RUN mkdir ~/git && cd ~/git && \
     git clone https://github.com/Bucchiman/dotfiles.git && \
     cd dotfiles && ./create_symbolic.sh
