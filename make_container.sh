@@ -3,7 +3,7 @@
 # FileName: 	make_container
 # Author: 8ucchiman
 # CreatedDate:  2023-01-26 17:02:35 +0900
-# LastModified: 2023-01-26 17:50:34 +0900
+# LastModified: 2023-01-29 00:37:15 +0900
 # Reference: 8ucchiman.jp
 #
 
@@ -29,5 +29,4 @@ do
     esac
 done
 docker run -it --gpus all $image_name
-
 return
