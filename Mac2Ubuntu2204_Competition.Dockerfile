@@ -1,7 +1,7 @@
-# FileName: Mac2Ubuntu2204_anaconda
+# FileName: Mac2Ubuntu2204_Competition
 # Author: 8ucchiman
-# CreatedDate: 2023-01-28 06:21:41 +0900
-# LastModified: 2023-02-11 13:47:13 +0900
+# CreatedDate: 2023-02-11 12:58:46 +0900
+# LastModified: 2023-02-11 13:43:55 +0900
 # Reference: 8ucchiman.jp
 
 
@@ -35,6 +35,8 @@ RUN mkdir ~/git && cd ~/git && \
 
 RUN wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
 
+RUN cd ~; mkdir datas compe
+# VOLUME
 
 CMD ["/usr/bin/zsh"]
 
