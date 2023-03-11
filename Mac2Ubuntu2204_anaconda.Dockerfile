@@ -1,6 +1,13 @@
-FROM nvidia/cuda:12.0.0-devel-ubuntu22.04
+# FileName: Mac2Ubuntu2204_anaconda
+# Author: 8ucchiman
+# CreatedDate: 2023-01-28 06:21:41 +0900
+# LastModified: 2023-02-11 13:47:13 +0900
+# Reference: 8ucchiman.jp
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo
+
+FROM --platform=linux/amd64 ubuntu:latest
+
+RUN apt-get update && apt-get install -y neofetch git zsh sudo wget
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install neovim -y
@@ -25,6 +32,8 @@ RUN mkdir ~/.config
 RUN mkdir ~/git && cd ~/git && \
     git clone https://github.com/Bucchiman/dotfiles.git && \
     cd dotfiles && ./create_symbolic.sh
+
+RUN wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
 
 
 CMD ["/usr/bin/zsh"]

@@ -1,11 +1,9 @@
-FROM nvidia/cuda:12.0.0-devel-ubuntu22.04
+FROM lmwafer/orb-slam-3-ready
 
 RUN apt-get update && apt-get install -y neofetch git zsh sudo
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install neovim -y
-RUN apt-get install fzf bat -y
-RUN mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat
 
 
 
@@ -21,11 +19,12 @@ RUN echo "root:root" | chpasswd && \
 
 USER ${username}
 WORKDIR /home/${username}
-RUN mkdir ~/.config
+RUN mkdir .config
 RUN mkdir ~/git && cd ~/git && \
     git clone https://github.com/Bucchiman/dotfiles.git && \
     cd dotfiles && ./create_symbolic.sh
 
 
 CMD ["/usr/bin/zsh"]
+
 
