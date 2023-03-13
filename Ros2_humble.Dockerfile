@@ -1,6 +1,6 @@
 FROM osrf/ros:humble-desktop
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common
+RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common expect
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install -y neovim
 
@@ -21,6 +21,8 @@ WORKDIR /home/${username}
 RUN mkdir ~/git && cd ~/git && \
     git clone https://github.com/Bucchiman/dotfiles.git && \
     cd dotfiles && ./create_symbolic.sh
+
+#RUN expect /mnt/b/git/base_docker/cargo.tcl
 
 
 CMD ["/usr/bin/zsh"]
