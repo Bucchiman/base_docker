@@ -1,4 +1,4 @@
-FROM cheesesan/base:latest
+FROM bucchiman/base:latest
 
 RUN sudo apt-get install -y python3-pip libgl1-mesa-dev
 RUN pip3 install -U pip

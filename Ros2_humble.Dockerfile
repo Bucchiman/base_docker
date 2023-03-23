@@ -3,6 +3,8 @@ FROM osrf/ros:humble-desktop
 RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install -y neovim
+RUN apt-get install fzf bat -y
+RUN mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat
 
 
 
