@@ -3,7 +3,7 @@
 # FileName: 	make_container
 # Author: 8ucchiman
 # CreatedDate:  2023-01-26 17:02:35 +0900
-# LastModified: 2023-02-11 13:27:16 +0900
+# LastModified: 2023-03-23 16:05:10 +0900
 # Reference: 8ucchiman.jp
 #
 
@@ -33,6 +33,13 @@ if [[ -z gpu_flag ]]
 then
     docker run -it --gpus all $image_name
 else
-    docker run -it $image_name
+    docker run -it --rm \
+               --net host \
+               --env DISPLAY=$DISPLAY \
+               --volume $HOME/.Xauthority:/home/bucchiman/.Xauthority \
+               --volume $HOME/.config/snippets:/home/bucchiman/lib \
+               --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
+               --user="bucchiman" \
+               $image_name
 fi
 return
