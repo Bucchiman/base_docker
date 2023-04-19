@@ -3,7 +3,7 @@
 # FileName: 	make_container
 # Author: 8ucchiman
 # CreatedDate:  2023-01-26 17:02:35 +0900
-# LastModified: 2023-03-23 21:59:49 +0900
+# LastModified: 2023-03-28 12:17:06 +0900
 # Reference: 8ucchiman.jp
 #
 
@@ -21,11 +21,12 @@ then
     exit 1
 fi
 
-while getopts :i:g OPT
+while getopts :i:c:g OPT
 do
     case $OPT in
         i) image_name=$OPTARG;;
         g) gpu_flag=true;;
+        c) container_name=$OPTARG;;
         :|\?) _usage;;
     esac
 done
@@ -36,7 +37,9 @@ then
                --env DISPLAY=$DISPLAY \
                --volume $HOME/.Xauthority:/home/bucchiman/.Xauthority \
                --volume $HOME/.config/snippets:/home/bucchiman/lib \
+               --volume $HOME/.ssh:/home/bucchiman/.ssh \
                --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
+               --name $container_name \
                --user="bucchiman" \
                $image_name
 else
@@ -45,7 +48,9 @@ else
                --env DISPLAY=$DISPLAY \
                --volume $HOME/.Xauthority:/home/bucchiman/.Xauthority \
                --volume $HOME/.config/snippets:/home/bucchiman/lib \
+               --volume $HOME/.ssh:/home/bucchiman/.ssh \
                --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
+               --name $container_name \
                --user="bucchiman" \
 fi
 return

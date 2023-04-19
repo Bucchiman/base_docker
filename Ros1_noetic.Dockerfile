@@ -1,4 +1,4 @@
-FROM osrf/ros:humble-desktop
+FROM osrf/ros:noetic-desktop-full
 
 RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps
 RUN add-apt-repository ppa:neovim-ppa/unstable
@@ -22,7 +22,7 @@ ARG USER_ID
 ARG GROUP_ID
 
 
-RUN groupadd -g ${GROUP_ID} ${USER_NAME}         # USER_IDにUSER_NAMEを追加
+RUN groupadd -g ${USER_ID} ${USER_NAME}         # USER_IDにUSER_NAMEを追加
 RUN useradd --uid ${USER_ID} --gid ${USER_NAME} -m ${USER_NAME} -d /home/${USER_NAME} -s /usr/bin/zsh #
 RUN gpasswd -a ${USER_NAME} sudo && gpasswd -a ${USER_NAME} dialout && gpasswd -a ${USER_NAME} video
 
@@ -34,8 +34,6 @@ WORKDIR /home/${USER_NAME}
 RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
     git clone https://github.com/Bucchiman/dotfiles.git && \
     cd dotfiles && ./create_symbolic.sh
-
-#RUN expect /mnt/b/git/base_docker/cargo.tcl
 
 
 CMD ["/usr/bin/zsh"]
