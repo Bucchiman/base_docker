@@ -37,6 +37,7 @@ then
                --env DISPLAY=$DISPLAY \
                --volume $HOME/.Xauthority:/home/bucchiman/.Xauthority \
                --volume $HOME/.config/snippets:/home/bucchiman/lib \
+               --volume $HOME/.ssh:/home/bucchiman/.ssh \
                --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
                --name $container_name \
                --user="bucchiman" \
@@ -47,6 +48,7 @@ else
                --env DISPLAY=$DISPLAY \
                --volume $HOME/.Xauthority:/home/bucchiman/.Xauthority \
                --volume $HOME/.config/snippets:/home/bucchiman/lib \
+               --volume $HOME/.ssh:/home/bucchiman/.ssh \
                --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
                --name $container_name \
                --user="bucchiman" \

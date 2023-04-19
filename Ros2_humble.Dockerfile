@@ -22,7 +22,7 @@ ARG USER_ID
 ARG GROUP_ID
 
 
-RUN groupadd -g ${USER_ID} ${USER_NAME}         # USER_IDにUSER_NAMEを追加
+RUN groupadd -g ${GROUP_ID} ${USER_NAME}         # USER_IDにUSER_NAMEを追加
 RUN useradd --uid ${USER_ID} --gid ${USER_NAME} -m ${USER_NAME} -d /home/${USER_NAME} -s /usr/bin/zsh #
 RUN gpasswd -a ${USER_NAME} sudo && gpasswd -a ${USER_NAME} dialout && gpasswd -a ${USER_NAME} video
 

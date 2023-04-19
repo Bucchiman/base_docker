@@ -12,7 +12,8 @@ RUN apt-get update -y && \
     apt-get install -y tzdata
 #RUN DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps cmake g++ wget unzip
+RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps cmake g++ wget unzip libgtk2.0-dev pkg-config
+
 #RUN apt-get update && add-apt-repository --yes ppa:xqms/opencv-nonfree && apt-get update && apt-get install libopencv-nonfree-dev
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install -y neovim
@@ -58,13 +59,13 @@ RUN wget -q -O opencv.zip https://github.com/opencv/opencv/archive/${OPENCV_VERS
           ../opencv-${OPENCV_VERSION} && \
     cmake --build . && \
     sudo make install
+RUN sudo ldconfig -v
 
-
-USER ${USER_NAME}
-WORKDIR /home/${USER_NAME}
-RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
-    git clone https://github.com/Bucchiman/dotfiles.git && \
-    cd dotfiles && ./create_symbolic.sh
+#USER ${USER_NAME}
+#WORKDIR /home/${USER_NAME}
+#RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
+#    git clone --recursive git@github.com:Bucchiman/dotfiles.git && \
+#    cd dotfiles && ./create_symbolic.sh
 
 
 CMD ["/usr/bin/zsh"]
