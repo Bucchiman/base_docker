@@ -39,6 +39,7 @@ then
                --volume $HOME/.config/snippets:/home/bucchiman/lib \
                --volume $HOME/.ssh:/home/bucchiman/.ssh \
                --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
+               --volume $HOME/common:/home/bucchiman/common \
                --name $container_name \
                --user="bucchiman" \
                $image_name
@@ -49,6 +50,7 @@ else
                --volume $HOME/.Xauthority:/home/bucchiman/.Xauthority \
                --volume $HOME/.config/snippets:/home/bucchiman/lib \
                --volume $HOME/.ssh:/home/bucchiman/.ssh \
+               --volume $HOME/common:/home/bucchiman/common \
                --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
                --name $container_name \
                --user="bucchiman" \
