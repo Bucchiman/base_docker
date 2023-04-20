@@ -12,7 +12,14 @@ RUN apt-get update -y && \
     apt-get install -y tzdata
 #RUN DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps cmake g++ wget unzip libgtk2.0-dev pkg-config
+RUN apt-get update && apt-get install -y neofetch
+RUN apt-get update && apt-get install -y git zsh sudo
+RUN apt-get update && apt-get install -y software-properties-common
+RUN apt-get update && apt-get install -y x11-apps
+RUN apt-get update && apt-get install -y cmake
+RUN apt-get update && apt-get install -y g++
+RUN apt-get update && apt-get install -y wget
+RUN apt-get update && apt-get install -y unzip
 
 #RUN apt-get update && add-apt-repository --yes ppa:xqms/opencv-nonfree && apt-get update && apt-get install libopencv-nonfree-dev
 RUN add-apt-repository ppa:neovim-ppa/unstable
@@ -20,7 +27,7 @@ RUN apt-get install -y neovim
 RUN apt-get install fzf bat -y
 RUN mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat
 
-
+RUN apt-get update && apt-get install -y libgtk2.0-dev pkg-config
 
 #RUN echo "root:root" | chpasswd && \
 #    adduser --disabled-password --gecos "" "${username}" && \
