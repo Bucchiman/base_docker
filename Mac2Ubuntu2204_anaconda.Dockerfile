@@ -1,8 +1,9 @@
-# FileName: Mac2Ubuntu2204_anaconda
-# Author: 8ucchiman
-# CreatedDate: 2023-01-28 06:21:41 +0900
+# FileName:     Mac2Ubuntu2204_anaconda
+# Author:       8ucchiman
+# CreatedDate:  2023-01-28 06:21:41 +0900
 # LastModified: 2023-03-23 16:10:18 +0900
-# Reference: 8ucchiman.jp
+# Reference:    8ucchiman.jp
+# Description:
 
 
 FROM --platform=linux/amd64 ubuntu:latest
@@ -30,12 +31,12 @@ RUN gpasswd -a ${USER_NAME} sudo && gpasswd -a ${USER_NAME} dialout && gpasswd -
 RUN sed -i -e 's/%sudo\tALL=(ALL:ALL) ALL/%sudo   ALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
 
 
-USER ${USER_NAME}
-WORKDIR /home/${USER_NAME}
-RUN mkdir ~/.config
-RUN mkdir ~/git && cd ~/git && \
-    git clone https://github.com/Bucchiman/dotfiles.git && \
-    cd dotfiles && ./create_symbolic.sh
+# USER ${USER_NAME}
+# WORKDIR /home/${USER_NAME}
+# RUN mkdir ~/.config
+# RUN mkdir ~/git && cd ~/git && \
+#     git clone https://github.com/Bucchiman/dotfiles.git && \
+#     cd dotfiles && ./create_symbolic.sh
 
 RUN wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
 

@@ -1,12 +1,13 @@
 FROM ubuntu:22.04
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo x11-apps vim
+RUN apt-get update && apt-get install -y neofetch git zsh sudo x11-apps vim wget
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install neovim -y
 RUN apt-get install fzf bat -y
 RUN mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat
 
+ENV SHELL=/usr/bin/zsh
 
 ARG USER_NAME
 # id -u
@@ -21,13 +22,12 @@ RUN gpasswd -a ${USER_NAME} sudo && gpasswd -a ${USER_NAME} dialout && gpasswd -
 RUN sed -i -e 's/%sudo\tALL=(ALL:ALL) ALL/%sudo   ALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
 
 
-USER ${USER_NAME}
-WORKDIR /home/${USER_NAME}
-RUN mkdir ~/git && cd ~/git && \
-    git clone https://github.com/Bucchiman/dotfiles.git && \
-    cd dotfiles && ./create_symbolic.sh
+#USER ${USER_NAME}
+#WORKDIR /home/${USER_NAME}
+#RUN mkdir ~/git && cd ~/git && \
+#    git clone https://github.com/Bucchiman/dotfiles.git && \
+#    cd dotfiles && ./create_symbolic.sh
 
 
 CMD ["/usr/bin/zsh"]
-
 
