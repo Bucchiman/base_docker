@@ -24,7 +24,7 @@ do
     esac
 done
 
-
+nohup socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" & # socatで6000番占有
 
 
 docker run -ti --rm \
