@@ -1,17 +1,17 @@
 #!/bin/zsh
 #
 # FileName: 	make_container
-# Author: 8ucchiman
+# Author:       8ucchiman
 # CreatedDate:  2023-01-26 17:02:35 +0900
 # LastModified: 2023-03-28 12:17:06 +0900
-# Reference: 8ucchiman.jp
+# Reference:    8ucchiman.jp
 #
 
 
 
 
 function _usage() {
-    echo "Usage: $0 -i image_name -g gpu_flag"
+    echo "Usage: $0 -i image_name -g gpu_flag -c container_name"
     exit 1
 }
 
@@ -39,8 +39,8 @@ then
                --volume $HOME/.config/snippets:/home/bucchiman/lib \
                --volume $HOME/.ssh:/home/bucchiman/.ssh \
                --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
+               --volume $HOME/common:/home/bucchiman/common \
                --name $container_name \
-               --user="bucchiman" \
                $image_name
 else
     docker run -it --rm \
@@ -49,9 +49,9 @@ else
                --volume $HOME/.Xauthority:/home/bucchiman/.Xauthority \
                --volume $HOME/.config/snippets:/home/bucchiman/lib \
                --volume $HOME/.ssh:/home/bucchiman/.ssh \
+               --volume $HOME/common:/home/bucchiman/common \
                --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
                --name $container_name \
-               --user="bucchiman" \
                $image_name
 fi
 return

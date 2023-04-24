@@ -1,6 +1,6 @@
 FROM nvidia/cuda:12.0.0-devel-ubuntu22.04
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo
+RUN apt-get update && apt-get install -y neofetch git zsh sudo x11-apps
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install neovim -y
@@ -9,6 +9,7 @@ RUN apt-get install fzf bat -y
 RUN mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat
 
 
+ENV SHELL=/usr/bin/zsh
 
 ARG USER_NAME
 # id -u
