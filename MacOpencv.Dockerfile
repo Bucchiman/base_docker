@@ -75,6 +75,3 @@ ENV SHELL=/usr/bin/zsh
 
 
 CMD ["/usr/bin/zsh"]
-
-
-

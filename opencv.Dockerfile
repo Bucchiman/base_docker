@@ -61,14 +61,12 @@ RUN wget -q -O opencv.zip https://github.com/opencv/opencv/archive/${OPENCV_VERS
     sudo make install
 RUN sudo ldconfig -v
 
-#USER ${USER_NAME}
-#WORKDIR /home/${USER_NAME}
-#RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
-#    git clone --recursive git@github.com:Bucchiman/dotfiles.git && \
-#    cd dotfiles && ./create_symbolic.sh
+USER ${USER_NAME}
+WORKDIR /home/${USER_NAME}
+RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
+    git clone https://github.com/Bucchiman/public_dotfiles.git dotfiles && \
+    cd dotfiles && ./create_symbolic.sh
 
+ENV SHELL=/usr/bin/zsh
 
 CMD ["/usr/bin/zsh"]
-
-
-
