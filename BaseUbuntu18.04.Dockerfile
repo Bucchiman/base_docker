@@ -7,7 +7,7 @@
 
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo x11-apps vim
+RUN apt-get update && apt-get install -y neofetch git zsh sudo x11-apps vim eog wget
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install neovim -y

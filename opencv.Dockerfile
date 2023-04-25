@@ -12,14 +12,11 @@ RUN apt-get update -y && \
     apt-get install -y tzdata
 #RUN DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y neofetch
-RUN apt-get update && apt-get install -y git zsh sudo
+RUN apt-get update && apt-get install -y neofetch git zsh sudo x11-apps cmake g++ wget unzip eog vim
 RUN apt-get update && apt-get install -y software-properties-common
-RUN apt-get update && apt-get install -y x11-apps
-RUN apt-get update && apt-get install -y cmake
-RUN apt-get update && apt-get install -y g++
-RUN apt-get update && apt-get install -y wget
-RUN apt-get update && apt-get install -y unzip
+
+
+
 
 #RUN apt-get update && add-apt-repository --yes ppa:xqms/opencv-nonfree && apt-get update && apt-get install libopencv-nonfree-dev
 RUN add-apt-repository ppa:neovim-ppa/unstable

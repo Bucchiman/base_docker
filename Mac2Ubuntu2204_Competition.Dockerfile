@@ -7,7 +7,7 @@
 
 FROM --platform=linux/amd64 ubuntu:latest
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo wget
+RUN apt-get update && apt-get install -y neofetch git zsh sudo wget eog
 RUN apt-get install software-properties-common -y
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install neovim -y
