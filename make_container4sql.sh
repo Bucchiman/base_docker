@@ -23,10 +23,5 @@
 #    esac
 #done
 
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Cinemashkachikachika.17" \
-           -p 1433:1433 --name 8sql --hostname 8sql \
-           -d \
-           --volume $HOME/common:/common \
-           mcr.microsoft.com/mssql/server:2022-latest
 
 return

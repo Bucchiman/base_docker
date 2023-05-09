@@ -1,6 +1,6 @@
 FROM osrf/ros:humble-desktop
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps
+RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps wget
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install -y neovim
 RUN apt-get install fzf bat -y
@@ -34,6 +34,11 @@ WORKDIR /home/${USER_NAME}
 RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
     git clone https://github.com/Bucchiman/dotfiles.git && \
     cd dotfiles && ./create_symbolic.sh
+
+
+RUN sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+RUN wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+RUN sudo apt-get update
 
 #RUN expect /mnt/b/git/base_docker/cargo.tcl
 
