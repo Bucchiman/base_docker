@@ -5,6 +5,8 @@ RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install -y neovim
 RUN apt-get install fzf bat -y
 RUN mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat
+RUN apt-get install -y ros-humble-gazebo-ros-pkgs ros-humble-ros-core ros-humble-geometry2
+RUN apt-get install -y python3-venv
 
 
 
@@ -35,10 +37,6 @@ RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
     git clone https://github.com/Bucchiman/dotfiles.git && \
     cd dotfiles && ./create_symbolic.sh
 
-
-RUN sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-RUN wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-RUN sudo apt-get update
 
 #RUN expect /mnt/b/git/base_docker/cargo.tcl
 

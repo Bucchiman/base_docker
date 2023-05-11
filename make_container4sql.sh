@@ -23,5 +23,7 @@
 #    esac
 #done
 
+docker run --name bucchiman_mysql -e MYSQL_ROOT_PASSWORD=gehogeho -d mysql:debian
+docker exec -it bucchiman_mysql zsh
 
 return

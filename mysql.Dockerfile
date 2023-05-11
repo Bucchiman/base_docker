@@ -1,5 +1,5 @@
 #
-# FileName:     sql
+# FileName:     mysql
 # Author:       8ucchiman
 # CreatedDate:  2023-05-08 13:15:36
 # LastModified: 2023-01-26 17:46:51 +0900
@@ -18,6 +18,7 @@ RUN apt-get install neovim -y
 RUN apt-get install fzf bat -y
 RUN mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat
 
+# RUN apt-get install mysql-server
 
 ENV SHELL=/usr/bin/zsh
 
