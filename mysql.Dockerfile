@@ -13,7 +13,7 @@ FROM mysql:debian
 
 RUN apt-get update && apt-get install -y neofetch git zsh sudo x11-apps vim wget eog
 RUN apt-get install software-properties-common -y
-RUN add-apt-repository ppa:neovim-ppa/unstable
+#RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install neovim -y
 RUN apt-get install fzf bat -y
 RUN mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat
@@ -22,4 +22,4 @@ RUN mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat
 
 ENV SHELL=/usr/bin/zsh
 
-CMD ["/usr/bin/zsh"]
+#CMD ["/usr/bin/zsh"]
