@@ -1,10 +1,12 @@
 FROM osrf/ros:humble-desktop
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps
+RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps wget
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install -y neovim
 RUN apt-get install fzf bat -y
 RUN mkdir -p ~/.local/bin && ln -s /usr/bin/batcat ~/.local/bin/bat
+RUN apt-get install -y ros-humble-gazebo-ros-pkgs ros-humble-ros-core ros-humble-geometry2
+RUN apt-get install -y python3-venv
 
 
 
@@ -34,6 +36,7 @@ WORKDIR /home/${USER_NAME}
 RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
     git clone https://github.com/Bucchiman/dotfiles.git && \
     cd dotfiles && ./create_symbolic.sh
+
 
 #RUN expect /mnt/b/git/base_docker/cargo.tcl
 
