@@ -27,11 +27,18 @@ done
 nohup socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" & # socatで6000番占有
 
 
+#docker run -ti --rm \
+#           -e DISPLAY=docker.for.mac.host.internal:0 \
+#           -v $HOME/.ssh:/home/bucchiman/.ssh \
+#           -v $HOME/common:/home/bucchiman/common \
+#           bucchiman/mac_opencv
+
 docker run -ti --rm \
            -e DISPLAY=docker.for.mac.host.internal:0 \
            -v $HOME/.ssh:/home/bucchiman/.ssh \
-	   -v $HOME/common:/home/bucchiman/common \
-           bucchiman/mac_opencv
+           -v $HOME/common:/home/bucchiman/common \
+           bucchiman/opengl
+
 
 return
 
