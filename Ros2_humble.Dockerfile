@@ -1,6 +1,6 @@
 FROM osrf/ros:humble-desktop
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps wget
+RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps wget unzip
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get install -y neovim
 RUN apt-get install fzf bat -y
@@ -37,6 +37,9 @@ RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
     git clone https://github.com/Bucchiman/dotfiles.git && \
     cd dotfiles && ./create_symbolic.sh
 
+RUN python3 -m venv venv
+RUN source /home/${USER_NAME}/venv/bin/activate && \
+    pip3 install colcon-argcomplete.zsh
 
 #RUN expect /mnt/b/git/base_docker/cargo.tcl
 

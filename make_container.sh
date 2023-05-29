@@ -32,7 +32,7 @@ do
 done
 if [[ -z gpu_flag ]]
 then
-    docker run -it --rm --gpus all \
+    docker run -it --gpus all \
                --net host \
                --env DISPLAY=$DISPLAY \
                --volume $HOME/.Xauthority:/home/bucchiman/.Xauthority \
@@ -43,7 +43,7 @@ then
                --name $container_name \
                $image_name
 else
-    docker run -it --rm \
+    docker run -it \
                --net host \
                --env DISPLAY=$DISPLAY \
                --volume $HOME/.Xauthority:/home/bucchiman/.Xauthority \
