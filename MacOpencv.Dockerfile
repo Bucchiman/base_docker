@@ -2,7 +2,8 @@
 # Author:       8ucchiman
 # CreatedDate:  2023-03-27 19:44:58 +0900
 # LastModified: 2023-03-29 18:24:35 +0900
-# Reference:    8ucchiman.jp
+# Reference:    https://qiita.com/yama07/items/a521234dc91f923ba655
+# Description:  
 
 
 FROM ubuntu:22.04
