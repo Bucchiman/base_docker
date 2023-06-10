@@ -33,12 +33,20 @@ nohup socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" & # socatで
 #           -v $HOME/common:/home/bucchiman/common \
 #           bucchiman/mac_opencv
 
-docker run -ti --rm \
-           -e DISPLAY=docker.for.mac.host.internal:0 \
-           -v $HOME/.ssh:/home/bucchiman/.ssh \
-           -v $HOME/common:/home/bucchiman/common \
-           bucchiman/opengl
+#docker run -ti --rm \
+#           -e DISPLAY=docker.for.mac.host.internal:0 \
+#           -v $HOME/.ssh:/home/bucchiman/.ssh \
+#           -v $HOME/common:/home/bucchiman/common \
+#           bucchiman/opengl
 
+docker run -it \
+           --net host \
+           --env DISPLAY=docker.for.mac.host.internal:0 \
+           --volume $HOME/.config/snippets:/home/bucchiman/lib \
+           --volume $HOME/.ssh:/home/bucchiman/.ssh \
+           --volume $HOME/common:/home/bucchiman/common \
+           --name bucchiman_ros2_humble \
+           bucchiman/ros2_humble
 
 return
 

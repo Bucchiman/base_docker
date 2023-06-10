@@ -24,7 +24,7 @@ ARG USER_ID
 ARG GROUP_ID
 
 
-RUN groupadd -g ${GROUP_ID} ${USER_NAME}         # USER_IDにUSER_NAMEを追加
+RUN groupadd -g ${GROUP_ID} -o ${USER_NAME}         # USER_IDにUSER_NAMEを追加
 RUN useradd --uid ${USER_ID} --gid ${USER_NAME} -m ${USER_NAME} -d /home/${USER_NAME} -s /usr/bin/zsh #
 RUN gpasswd -a ${USER_NAME} sudo && gpasswd -a ${USER_NAME} dialout && gpasswd -a ${USER_NAME} video
 
@@ -34,12 +34,12 @@ RUN sed -i -e 's/%sudo\tALL=(ALL:ALL) ALL/%sudo   ALL=(ALL:ALL) NOPASSWD:ALL/' /
 USER ${USER_NAME}
 WORKDIR /home/${USER_NAME}
 RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
-    git clone https://github.com/Bucchiman/dotfiles.git && \
+    git clone https://github.com/Bucchiman/public_dotfiles.git dotfiles && \
     cd dotfiles && ./create_symbolic.sh
 
 RUN python3 -m venv venv
-RUN source /home/${USER_NAME}/venv/bin/activate && \
-    pip3 install colcon-argcomplete.zsh
+#RUN source /home/${USER_NAME}/venv/bin/activate && \
+#    pip3 install colcon-argcomplete.zsh
 
 #RUN expect /mnt/b/git/base_docker/cargo.tcl
 
