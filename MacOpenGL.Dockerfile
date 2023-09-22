@@ -1,7 +1,7 @@
 #
-# FileName:     OpenGL
+# FileName:     MacOpenGL
 # Author:       8ucchiman
-# CreatedDate:  2023-05-19 18:32:21
+# CreatedDate:  2023-07-01 15:24:13
 # LastModified: 2023-01-26 17:46:51 +0900
 # Reference:    8ucchiman.jp
 # Description:  ---
@@ -28,7 +28,7 @@ RUN apt-get install -y libglew-dev libglfw3-dev libglm-dev
 RUN apt-get install -y libao-dev libmpg123-dev libxi-dev
 RUN apt-get install -y libxinerama-dev libxcursor-dev
 
-ENV display :0
+
 ARG USER_NAME
 # id -u
 ARG USER_ID
