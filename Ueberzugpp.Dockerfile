@@ -28,6 +28,14 @@ RUN sed -i -e 's/%sudo\tALL=(ALL:ALL) ALL/%sudo   ALL=(ALL:ALL) NOPASSWD:ALL/' /
 #    git clone https://github.com/Bucchiman/dotfiles.git && \
 #    cd dotfiles && ./create_symbolic.sh
 
+RUN git clone https://github.com/hpjansson/chafa.git
+RUN cd chafa && ./autogen.sh && make && sudo make install
 
-CMD ["/usr/bin/zsh"]
+
+RUN git clone https://github.com/jstkdng/ueberzugpp.git /root/ueberzugpp
+RUN cd /root/ueberzugpp && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_OPENCV=OFF .. && cmake --build .
+RUN cd /root/ueberzugpp/build && make && sudo make install
+
+
+CMD ["ueberzugpp"]
 
