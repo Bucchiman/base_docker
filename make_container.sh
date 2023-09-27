@@ -46,12 +46,12 @@ else
     docker run -it \
                --net host \
                --env DISPLAY=$DISPLAY \
+               --rm \
                --volume $HOME/.Xauthority:/home/bucchiman/.Xauthority \
                --volume $HOME/.config/snippets:/home/bucchiman/lib \
                --volume $HOME/.ssh:/home/bucchiman/.ssh \
                --volume $HOME/common:/home/bucchiman/common \
                --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
-               --name $container_name \
-               $image_name
+               bucchiman/ueberzugpp
 fi
 return
