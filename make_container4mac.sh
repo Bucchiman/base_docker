@@ -3,7 +3,7 @@
 # FileName:     make_container4mac
 # Author:       8ucchiman
 # CreatedDate:  2023-04-23 10:25:34
-# LastModified: 2023-01-23 14:11:45 +0900
+# LastModified: 2023-12-09 18:34:27
 # Reference:    8ucchiman.jp
 #
 
@@ -27,17 +27,17 @@ done
 nohup socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" & # socatで6000番占有
 
 
-#docker run -ti --rm \
-#           -e DISPLAY=docker.for.mac.host.internal:0 \
-#           -v $HOME/.ssh:/home/bucchiman/.ssh \
-#           -v $HOME/common:/home/bucchiman/common \
-#           bucchiman/mac_opencv
-
 docker run -ti --rm \
            -e DISPLAY=docker.for.mac.host.internal:0 \
            -v $HOME/.ssh:/home/bucchiman/.ssh \
-           -v $HOME/common:/home/bucchiman/common \
-           bucchiman/opengl
+           -v $HOME/dotfiles:/home/bucchiman/mnt/ \
+           bucchiman/mac_opencv
+
+# docker run -ti --rm \
+#            -e DISPLAY=docker.for.mac.host.internal:0 \
+#            -v $HOME/.ssh:/home/bucchiman/.ssh \
+#            -v $HOME/common:/home/bucchiman/common \
+#            bucchiman/opengl
 
 #docker run -it \
 #           --net host \
