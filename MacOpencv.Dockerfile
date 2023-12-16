@@ -1,19 +1,40 @@
 # FileName:     opencv
 # Author:       8ucchiman
 # CreatedDate:  2023-03-27 19:44:58 +0900
-# LastModified: 2023-03-29 18:24:35 +0900
+# LastModified: 2023-12-15 22:45:59
 # Reference:    https://qiita.com/yama07/items/a521234dc91f923ba655
 # Description:  
 
 
 FROM ubuntu:22.04
+ENV TZ=Asia/Tokyo
+ENV DEBIAN_FRONTEND=noninteractive
 
 
 RUN apt-get update -y && \
     apt-get install -y tzdata
 #RUN DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y neofetch git zsh sudo software-properties-common x11-apps cmake g++ wget unzip libgtk2.0-dev pkg-config
+RUN apt-get update && apt-get install -y \
+    neofetch \
+    git \
+    zsh \
+    sudo \
+    software-properties-common \
+    x11-apps \
+    cmake \
+    g++ \
+    wget \
+    unzip \
+    libgtk2.0-dev \
+    pkg-config
+
+# TimeZone を設定
+RUN echo $TZ > /etc/timezone \
+  && rm /etc/localtime \
+  && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+  && dpkg-reconfigure -f noninteractive tzdata
+
 
 #RUN apt-get update && add-apt-repository --yes ppa:xqms/opencv-nonfree && apt-get update && apt-get install libopencv-nonfree-dev
 RUN add-apt-repository ppa:neovim-ppa/unstable
@@ -66,9 +87,9 @@ ENV DISPLAY :0
 
 USER ${USER_NAME}
 WORKDIR /home/${USER_NAME}
-RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
-    git clone https://github.com/Bucchiman/public_dotfiles.git dotfiles && \
-    cd dotfiles && ./create_symbolic.sh
+#RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
+#    git clone https://github.com/Bucchiman/public_dotfiles.git dotfiles && \
+#    cd dotfiles && ./create_symbolic.sh
 
 
 
@@ -76,3 +97,4 @@ ENV SHELL=/usr/bin/zsh
 
 
 CMD ["/usr/bin/zsh"]
+#ENTRYPOINT ["/workspace/torchvision/docker/entrypoint.sh"]
