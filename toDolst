@@ -1,0 +1,29 @@
+- make generic and the others explicitly        issue: 3
+    - make generic, i.e. core(generic), specific processing section(nongeneric), initialize shell script(half-generic)
+    - toDo
+        - [] make generic core.Dockerfile
+            - frequently use packages(e.g. vim, neovim, sudo, et al.)
+            - timezone
+            - user_id, group_id (or half-generic?)
+        - make specific processing section
+            - another issues
+        - [] make half-generic shell script
+            - working directory
+            - default shell script
+            - display setting
+- opencv environment        issue: 4
+    - toDo
+        - [] windows
+        - [] linux(ubuntu)
+        - [] mac
+- opengl environment        issue: 5
+    - toDo
+        - [] windows
+            - enable gpu
+        - [] linux
+            - enable gpu
+        - [] mac
+- pytorch x gpu        issue: 6
+    - toDo
+        - [] windows
+        - [] linux
