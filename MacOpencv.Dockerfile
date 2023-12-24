@@ -1,7 +1,7 @@
 # FileName:     opencv
 # Author:       8ucchiman
 # CreatedDate:  2023-03-27 19:44:58 +0900
-# LastModified: 2023-03-29 18:24:35 +0900
+# LastModified: 2023-12-24 15:22:49
 # Reference:    https://qiita.com/yama07/items/a521234dc91f923ba655
 # Description:  
 
@@ -66,9 +66,9 @@ ENV DISPLAY :0
 
 USER ${USER_NAME}
 WORKDIR /home/${USER_NAME}
-RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
-    git clone https://github.com/Bucchiman/public_dotfiles.git dotfiles && \
-    cd dotfiles && ./create_symbolic.sh
+#RUN mkdir /home/${USER_NAME}/git && cd /home/${USER_NAME}/git && \
+#    git clone https://github.com/Bucchiman/public_dotfiles.git dotfiles && \
+#    cd dotfiles && ./create_symbolic.sh
 
 
 

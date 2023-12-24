@@ -3,7 +3,7 @@
 # FileName:     make_container4mac
 # Author:       8ucchiman
 # CreatedDate:  2023-04-23 10:25:34
-# LastModified: 2023-12-09 18:34:27
+# LastModified: 2023-12-24 20:56:30
 # Reference:    8ucchiman.jp
 #
 
@@ -31,7 +31,7 @@ docker run -ti --rm \
            -e DISPLAY=docker.for.mac.host.internal:0 \
            -v $HOME/.ssh:/home/bucchiman/.ssh \
            -v $HOME/dotfiles:/home/bucchiman/mnt/ \
-           bucchiman/mac_opencv
+           bucchiman/opencv
 
 # docker run -ti --rm \
 #            -e DISPLAY=docker.for.mac.host.internal:0 \

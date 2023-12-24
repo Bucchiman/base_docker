@@ -12,8 +12,4 @@ export HOME=/home/dockeruser
 
 sed -i -e 's/%sudo\tALL=(ALL:ALL) ALL/%sudo   ALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
 
-# torchvision をソースからビルド
-cd /workspace/torchvision
-FORCE_CUDA=1 python setup.py develop
-
 exec /usr/sbin/gosu dockeruser "$@"
