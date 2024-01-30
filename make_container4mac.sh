@@ -3,7 +3,7 @@
 # FileName:     make_container4mac
 # Author:       8ucchiman
 # CreatedDate:  2023-04-23 10:25:34
-# LastModified: 2023-12-24 20:56:30
+# LastModified: 2024-01-20 13:39:37
 # Reference:    8ucchiman.jp
 #
 
@@ -27,11 +27,11 @@ done
 nohup socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" & # socatで6000番占有
 
 
-docker run -ti --rm \
-           -e DISPLAY=docker.for.mac.host.internal:0 \
-           -v $HOME/.ssh:/home/bucchiman/.ssh \
-           -v $HOME/dotfiles:/home/bucchiman/mnt/ \
-           bucchiman/opencv
+#docker run -ti --rm \
+#           -e DISPLAY=docker.for.mac.host.internal:0 \
+#           -v $HOME/.ssh:/home/bucchiman/.ssh \
+#           -v $HOME/dotfiles:/home/bucchiman/mnt/ \
+#           bucchiman/opencv
 
 # docker run -ti --rm \
 #            -e DISPLAY=docker.for.mac.host.internal:0 \
@@ -39,14 +39,14 @@ docker run -ti --rm \
 #            -v $HOME/common:/home/bucchiman/common \
 #            bucchiman/opengl
 
-#docker run -it \
-#           --net host \
-#           --env DISPLAY=docker.for.mac.host.internal:0 \
-#           --volume $HOME/.config/snippets:/home/bucchiman/lib \
-#           --volume $HOME/.ssh:/home/bucchiman/.ssh \
-#           --volume $HOME/common:/home/bucchiman/common \
-#           --name bucchiman_ros2_humble \
-#           bucchiman/ros2_humble
+docker run -it \
+           --net host \
+           --env DISPLAY=docker.for.mac.host.internal:0 \
+           --volume $HOME/.config/snippets:/home/bucchiman/lib \
+           --volume $HOME/.ssh:/home/bucchiman/.ssh \
+           --volume $HOME/:/home/bucchiman/mnt \
+           --name bucchiman_ros2_humble \
+           bucchiman/ros2_humble
 
 return
 
