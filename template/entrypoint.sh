@@ -1,4 +1,5 @@
 #!/bin/bash
+# Reference: https://github.com/PINTO0309/PyTorch-build/blob/main/entrypoint.sh
 
 USER_ID=${LOCAL_UID:-9001}
 GROUP_ID=${LOCAL_GID:-9001}
