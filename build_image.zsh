@@ -1,3 +1,7 @@
+#!/usr/bin/zsh
+
+
+
 
 _usage(){
     echo "Usage: $0 -u username -n image_name -f dockerfile"

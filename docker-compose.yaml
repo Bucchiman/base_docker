@@ -1,0 +1,21 @@
+#
+# FileName:     docker-compose
+# Author:       8ucchiman
+# CreatedDate:  2025-11-12 12:38:58
+# LastModified: 2025-11-12 12:43:41
+# Reference:    https://qiita.com/yuta-ushijima/items/d3d98177e1b28f736f04
+# Description:  ---
+#
+
+
+services:
+  web:
+    image: ubuntu:latest
+    ports:
+      - "80:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    user: "1000:1000"
